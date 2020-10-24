@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 var UserSchema = new mongoose.Schema({
+
+  id:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User"
+      },
   
     name: {
       type: String,
@@ -18,6 +23,11 @@ var UserSchema = new mongoose.Schema({
 
     
     },
+     isVerified: 
+      { 
+      type: Boolean,
+       default: false
+       },
     
       password: {
       type: String,
@@ -25,12 +35,6 @@ var UserSchema = new mongoose.Schema({
       select:false
 
     },
-    isVerified: { 
-      type: Boolean,
-       default: false
-       },
-    
-    
     
     
   });
@@ -39,3 +43,4 @@ var UserSchema = new mongoose.Schema({
   
   module.exports = User;
 
+  
